@@ -15,6 +15,6 @@ David Ovalle
 
 This project is a fork of https://github.com/jzamora5/AirBnB_clone_v3
 
-Original Project's README(https://github.com/jzamora5/AirBnB_clone_v3/blob/master/README.md)
+Original Project's [README](https://github.com/jzamora5/AirBnB_clone_v3/blob/master/README.md)
 
 ### NEW CONTRIBUTORS
