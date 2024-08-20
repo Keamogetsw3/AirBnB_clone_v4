@@ -25,3 +25,18 @@ This project is a fork of https://github.com/jzamora5/AirBnB_clone_v3
 Original Project's [README](https://github.com/jzamora5/AirBnB_clone_v3/blob/master/README.md)
 
 ### NEW CONTRIBUTORS
+Keamogetswe M
+
+# Contributions
+
+## 1 Write a script that starts a Flask web application:
+
+- Based on web_flask, copy: web_flask/static, web_flask/templates/100-hbnb.html, web_flask/__init__.py and web_flask/100-hbnb.py into the web_dynamic folder
+- Rename 100-hbnb.py to 0-hbnb.py
+- Rename 100-hbnb.html to 0-hbnb.html
+- Update 0-hbnb.py to replace the existing route to /0-hbnb/
+- If 100-hbnb.html is not present, use 8-hbnb.html instead
+- One problem now is the asset caching done by Flask.
+  - To avoid that, you will add a query string to each asset:
+  - In 0-hbnb.py, add a variable cache_id to the render_template. The value of this variable must be an UUID (uuid.uuid4())
+  - In 0-hbnb.html, add this variable cache_id as query string to each <link> tag URL
