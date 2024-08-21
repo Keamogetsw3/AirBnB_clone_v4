@@ -1,27 +1,27 @@
-$(document).ready(function () {
-    let checkedAmenities = {};
-    $(document).on('change', "input[type='checkbox']", function () {
-        if (this.checked) {
-            checkedAmenities[$(this).data('id')] = $(this).data('name');
-        } else {
-            delete checkedAmenities[$(this).data('id')];
-        }
-        let lst = Object.values(checkedAmenities);
-        if (lst.length > 0) {
-            $('div.amenities > h4').text(Object.values(checkedAmenities).join(', '));
-        } else {
-            $('div.amenities > h4').html('&nbsp;');
-        }
-    });
-    $.get('http://0.0.0.0:5001/api/v1/status/', function (data, textStatus) {
-        if (textStatus === 'success') {
-            if (data.status === 'OK') {
-                $('#api_status').addClass('available');
-            } else {
-                $('#api_status').removeClass('available');
-            }
-        }
-    });
+$('document').ready(function () {
+  const url = 'http://' + window.location.hostname + ':5001/api/v1/status/';
+  $.get(url, function (response) {
+    if (response.status === 'OK') {
+      $('DIV#api_status').addClass('available');
+    } else {
+      $('DIV#api_status').removeClass('available');
+    }
+  });
+
+  let amenities = {};
+  $('INPUT[type="checkbox"]').change(function () {
+    if ($(this).is(':checked')) {
+      amenities[$(this).attr('data-id')] = $(this).attr('data-name');
+    } else {
+      delete amenities[$(this).attr('data-id')];
+    }
+    if (Object.values(amenities).length === 0) {
+      $('.amenities H4').html('&nbsp;');
+    } else {
+      $('.amenities H4').text(Object.values(amenities).join(', '));
+    }
+  });
+});
     $.ajax({
         type: 'POST',
         url: 'http://0.0.0.0:5001/api/v1/places_search',
